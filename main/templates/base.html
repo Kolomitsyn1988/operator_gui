@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+{% block head %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description"
+          content="Operator Module for kernel sntg">
+    <title>Operator Module</title>
+    <!-- Fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Favicons-->
+    <!--  Android 5 Chrome Color-->
+    <meta name="theme-color" content="#EE6E73">
+
+    <link rel="stylesheet" href="{% static 'main/fonts/FontAwesome/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/fonts/ProximaNova/fonts.css' %}"/>
+    <link href="{% static 'main/scss/main.css' %}" rel="stylesheet"/>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://cdn.rawgit.com/AngularClass/angular-websocket/v2.0.0/dist/angular-websocket.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="{% static 'main/js/lib/chat/chat.js' %}"></script>
+</head>
+{% endblock %}
+
+<body>
+{% block body %}
+    {% block nav %}
+    <nav>
+        <div id="general-nav">
+            <div onclick="document.location='/'" class="logo">operator module</div>
+            {% block op_nav %}
+                <div class="op-nav">
+                    <ul>
+                        <li><a href="#"><i class="fa-commenting-o"></i></a></li>
+                        <li><a href="#"><i class="fa-gear"></i></a></li>
+                        <li><a href="#"><i class="fa-volume-off"></i></a></li>
+                        <li><a href="#"><i class="fa-volume-up"></i></a></li>
+                        <li><a href="#"><i class="fa-eye"></i></a></li>
+                        <li><a href="#"><i class="fa-flash"></i></a></li>
+                    </ul>
+                    <div class="op-profile"><a href="/accounts/logout/">{{ user }}</a></div>
+                </div>
+            {% endblock %}
+        </div>
+    </nav>
+    {% endblock %}
+
+<div id="content">
+    {% block content %}
+        <div id="top-chat-panel">
+            <div class="chat-sections">
+                <ul>
+                    <li class="active"><a href="#">открытые
+                        <div>12</div>
+                    </a></li>
+                    <li><a href="#">переведенные
+                        <div>7</div>
+                    </a></li>
+                    <li><a href="#">новые</a></li>
+                    <li><a href="#">закрытые</a></li>
+                </ul>
+            </div>
+            <div class="chat-actions">
+                <ul>
+                    <li><a href="#"><i class="fa-info"></i></a></li>
+                    <li class="active"><i class="fa-close"></i></li>
+                    <li><a href="#"><i class="fa-play"></i></a></li>
+                    <li><a href="#"><i class="fa-pencil"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="user-chat-channels">
+            <!--{# LEFT PANNEL #}-->
+            <div class="social-group">
+<<<<<<< Updated upstream
+                <a href="#"><i class="fa-vk"></i> <span>ZARA</span><i class="triangle fa-chevron-right"></i></a>
+=======
+                <a href="#" ng-click="OnClickVk()"><i class="fa-vk"></i> <span>ZARA</span>
+                    <i class="icon-right fa-chevron-down" ng-show="vkVisible"></i>
+                    <i class="icon-right fa-chevron-right" ng-hide="vkVisible"></i>
+                </a>
+                <ul id="vkItems" ng-show="vkVisible" style="height: 100px;">
+                    <!--<li><a href="#">User 1</a></li>
+                    <li><a href="#">User 1</a></li>
+                    <li><a href="#">User 1</a></li>
+                    <li><a href="#">User 1</a></li>
+                    <li><a href="#">User 1</a></li>-->
+                </ul>
+>>>>>>> Stashed changes
+            </div>
+            <div class="social-group">
+                <a href="#"><i class="fa-wechat"></i> <span>ZARA</span><i class="triangle fa-chevron-right"></i></a>
+            </div>
+            <div class="social-group active">
+<<<<<<< Updated upstream
+                <a href="#"><i class="fa-paper-plane"></i> <span>ZARA</span><i class="triangle fa-chevron-down"></i></a>
+                <ul>
+                    <li><a href="#">User 1</a></li>
+                    <li><a href="#">User 2</a></li>
+                    <li class="active">User 3</li>
+                </ul>
+=======
+                <a href="#" ng-click="onClickTg()"><i class="fa-paper-plane"></i> <span>ZARA</span>
+                    <i class="icon-right fa-chevron-down" ng-show="tgVisible"></i>
+                    <i class="icon-right fa-chevron-right" ng-hide="tgVisible"></i>
+                </a>
+                <ul id="tlItems" ng-show="tgVisible">
+                 </ul>
+                
+>>>>>>> Stashed changes
+            </div>
+
+        </div>
+    <div id="chat-window" ng-app="chatApp" ng-controller="chatCtrl">
+
+        <div class="chat-title">
+            <div class="container">
+                <div class="user-name"><span class="online"><i class="fa-circle"></i></span> User 3</div>
+                <div class="user-state">Печатает...</div>
+            </div>
+        </div>
+        <div class="chat-messages" id="output">
+            <!--<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />-->
+        </div>
+        <div class="chat-controls">
+            <div class="chat-attachments"><i class="fa-paperclip"></i></div>
+            <input class="chat-input" type="text" placeholder="Введите сообщение" ng-model="sendedMessage" id="message" />
+            <div class="chat-attachments"><i class="fa-smile-o"></i></div>
+            <input class="chat-send" type="submit" value="Отправить" ng-click="onSendMessage()" />
+        </div>
+    </div>
+        <div id="window-control">
+            <div class="container">
+                <span class="tab-title">Завершение диалога</span>
+                <div class="left-align">
+                    Оценка:
+                    <div class="star-rating">
+                        <div class="star-rating__wrap">
+                            <input class="star-rating__input" id="star-rating-5" type="radio" name="rating" value="5">
+                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-5" title="5 из 5"></label>
+                            <input class="star-rating__input" id="star-rating-4" type="radio" name="rating" value="4">
+                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-4" title="4 из 5"></label>
+                            <input class="star-rating__input" id="star-rating-3" type="radio" name="rating" value="3">
+                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-3" title="3 из 5"></label>
+                            <input class="star-rating__input" id="star-rating-2" type="radio" name="rating" value="2">
+                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-2" title="2 из 5"></label>
+                            <input class="star-rating__input" id="star-rating-1" type="radio" name="rating" value="1">
+                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-1" title="1 из 5"></label>
+                        </div>
+                    </div>
+                    <div class="comments">
+                        <span class="comment-title">Комментарии:</span>
+                        <div class="comment">
+                            <div class="comment-text">
+                                Если подуешь на искру, она разгорится,
+
+                                а если плюнешь на нее, угаснет: то и другое
+
+                                выходит из уст твоих.
+
+                                (Сир. XXVIII, 14)
+                            </div>
+                            <br/>
+                            <span class="comment-date">
+                                15.07.17 16:45
+                            </span>
+                        </div>
+                    </div>
+                    <div class="comment-send">
+                        <input class="text-input" type="text" placeholder="Отличная работа!"/>
+                        <button class="send-input"><i class="fa-arrow-up"></i></button>
+                        <div class="clear"></div>
+                    </div>
+                    <a href="#" class="close-button">Закрыть беседу</a>
+                </div>
+            </div>
+            <br/><br/>
+        </div>
+    {% endblock %}
+</div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load mytags %}
+{% block content %}
+{% block op_nav %}{% endblock %}
+<div class="login-page">
+    <div class="login-form">
+        <div class="login-title">
+            Авторизация
+            <!--<p>{% trans "Not member" %}? <a href="{% url 'registration_register' %}" class="reg-button">{% trans "Register" %}</a>!</p>-->
+        </div>
+        <div class="login-content">
+            <form method="post" action=".">
+                {% csrf_token %}
+                <p>
+                    <label for="id_username"><i class="fa-user"></i></label>
+                    <input class="login-input" type="text" placeholder="Username" name="username" value="фыв" autofocus="" maxlength="254" required="" id="id_username">
+                </p>
+                <p>
+                    <label for="id_password"><i class="fa-lock"></i></label>
+                    <input class="login-input" type="password" placeholder="Password" name="password" required="" id="id_password">
+                </p>
+                <div class="submit-data">
+                    <input class="login-submit" type="submit" value="{% trans 'Log in' %}"/>
+                    <a href="{% url 'auth_password_reset' %}" class="login-forgot">{% trans "Forgot password?" %}</a>
+                </div>
+                <input type="hidden" name="next" value="{{ next }}"/>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
