@@ -18,7 +18,7 @@ idna==2.6
 ipython==6.1.0
 ipython-genutils==0.2.0
 jedi==0.10.2
-Jinja2==2.9.6
+Jinja2==2.11.3
 MarkupSafe==1.0
 mr-bot==1.1.2
 mr-logger==0.2
